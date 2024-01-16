@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text 속성</title>
+    <!-- 
+        text 속성
+        text-align : 정렬 left,right,center,justify(양쪽)
+        text-indent : 들여쓰기
+        text-decoration : 줄긋기
+            - none : 없음
+            - underline : 밑줄
+            - overline : 윗줄
+            - line-through : 가운데줄
+        letter-spacing : 자간
+        line-height : 글자 기준선 높이
+        word-spacing : 단어간 간격
+        white-space : 컨텐츠 감싸기 여부 방법
+            - wrap : 여러 줄 그대로 두기
+            = nowrap : 한 줄로 처리
+        text-shadow : 그림자
+            - text-shadow : 좌측 px, 상단 px, 번짐정도 px, 색상
+            - 중첩(멀티)효과 ,(콤마)로 계속 이어나갈 수 있음
+        text-overflow : 텍스트가 범위를 넘어가는 경우
+            - ellipsis (...)
+        overflow : 요소가 넘어가면 어떻게 처리할 것인지를 정하는 속성
+            - hidden : 숨김
+            - scroll : 스크롤 생성
+            - auto : 스크롤 오토 생성
+     -->
+     <!-- 
+        css 표준단위
+        em : 배수, 부모값을 기준으로 배수
+        rem : 배수, 문서의 값을 기준으로 배수
+        % : 퍼센트, 현재 값을 기준으로 %
+        px : 픽셀
+        cm / mm / in : 1in => 96px
+        pt : 포인터 1pt = 1/72 in
+        pc : 피카소 1pc = 12pt
+        deg : 각도
+      -->
+     <style>
+        div{
+            width: 300px;
+            height: 50px;
+            border: 1px solid black;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 50px;
+            word-spacing: 20px;
+            text-shadow: 3px 3px 3px white;
+        }
+        p{
+            text-indent: 20px;
+        }
+        .line{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+     </style>
+</head>
+<body>
+    <div>hello hi hi hi hi</div>
+    <p>
+        모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시·장소가 지체없이 통지되어야 한다. 정당은 법률이 정하는 바에 의하여 국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여 정당운영에 필요한 자금을 보조할 수 있다.
+    </p>
+    <p class="line">
+        모든 국민은 자기의 행위가 아닌 친족의 행위로 인하여 불이익한 처우를 받지 아니한다. 모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 누구든지 체포 또는 구속의 이유와 변호인의 조력을 받을 권리가 있음을 고지받지 아니하고는 체포 또는 구속을 당하지 아니한다. 체포 또는 구속을 당한 자의 가족등 법률이 정하는 자에게는 그 이유와 일시·장소가 지체없이 통지되어야 한다. 정당은 법률이 정하는 바에 의하여 국가의 보호를 받으며, 국가는 법률이 정하는 바에 의하여 정당운영에 필요한 자금을 보조할 수 있다.
+    </p>
+</body>
+</html>

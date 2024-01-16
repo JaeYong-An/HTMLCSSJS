@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    이름 : <input type="text" id="name">
+    주민번호 : <input type="text" id="rn">
+    <button type="button" onclick="info()">확인</button>
+
+    <h3 id="result">
+        <!-- 이름 나이 성별 생년월일 -->
+
+    </h3>
+
+    <script>
+        function info() {
+            let name = document.getElementById(`name`).value;
+            let rn = document.getElementById(`rn`).value;
+            let id = rn.charAt(rn.indexOf(`-`)+1);
+            let today = new Date();
+            let result = document.getElementById(`result`);
+            let month = rn.slice(2,4);
+            let day = rn.slice(4,6);
+            let year = (id==`1`||id==`2`) ? 19+rn.slice(0,2):20+rn.slice(0,2);
+            let age = today.getFullYear()-parseInt(year)+1;
+            let gender = id==`1`||id==`3` ? `,남)`:`,여)`
+            result.innerText = `${name}(${age}${gender} 생년월일 : ${year}년 ${month}월 ${day}일`;
+            // if(id==`1`||id==`2`){
+            //     let year = 19+rn.slice(0,2);
+            //     let age = today.getFullYear()-parseInt(year)+1;
+            //     result.innerText = `${name}(${age}${id==`1`||id==`3` ? `,남)`:`,여)`} 생년월일 : ${year}년 ${month}월 ${day}일`;
+            // }else{
+            //     let year = 20+rn.slice(0,2);
+            //     let age = today.getFullYear()-parseInt(year)+1;
+            //     result.innerText = `${name}(${age}${id==`1`||id==`3` ? `,남)`:`,여)`} 생년월일 : ${year}년 ${month}월 ${day}일`;
+            // }
+            //result.innerText = `${name}(${id==`1`||id==`2` ? today.getFullYear()-rn.slice(0,2)-1899:today.getFullYear()-rn.slice(0,2)-1999}${id==`1`||id==`3` ? `,남)`:`,여)`} 생년월일 : 19${rn.slice(0,rn.indexOf("-"))}`;
+        }
+    </script>
+</body>
+</html>

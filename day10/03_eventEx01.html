@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적 확인</legend>
+            이름 : <input type="text" id="name">
+            국어 : <input type="text" id="kor">
+            영어 : <input type="text" id="eng">
+            수학 : <input type="text" id="math">
+            <button type="button" onclick="sum()">성적 계산</button>
+        </fieldset>
+    </form>
+    <!-- 이름 : 000, 합계 : 000, 평균 : 000 -->
+    <h3 id="sum"></h3>
+
+    <script>
+        function sum() {
+            let name = document.getElementById('name').value;
+            let kor = parseInt(document.getElementById('kor').value);
+            let eng = parseInt(document.getElementById('eng').value);
+            let math = parseInt(document.getElementById('math').value);
+
+            let total = kor+eng+math;
+
+            let sum = document.getElementById('sum');
+            sum.innerText = `이름 : ${name}, 합계 : ${total}, 평균 : ${(total/3).toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

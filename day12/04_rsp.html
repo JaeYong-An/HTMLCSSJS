@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        가위 바위 보를 10번하여 승률 출력
+    </h1>
+    <button type="button" id="btn">승률 출력</button>
+    <h3>
+        10게임의 승률은 <span id="result"></span>%입니다.
+    </h3>
+    <script>
+        //가위바위보
+        //둘 다 랜덤
+        //1 = 가위, 2 = 바위, 3 = 보
+        //승률계산 (승/(10-무))*100 toFixed(2)
+        //콘솔에 com player 출력
+        //승: 무: 패:
+        //승률 표현
+        function rsp() {
+            let draw = 0;
+            let win = 0;
+            for(let i=0; i<10; i++){
+                let com = Math.floor((Math.random()*3)+1);
+                let player = Math.floor((Math.random()*3)+1);
+                if(com==1){
+                    if(player==1){
+                        console.log(`com : 가위 player : 가위, 무승부`);
+                        draw++;
+                    }
+                    else if(player==2){
+                        console.log(`com : 가위 player : 바위, 승`);
+                        win++;
+                    }else{
+                        console.log(`com : 가위 player : 보, 패`);
+                    }
+                }else if(com==2){
+                    if(player==1){
+                        console.log(`com : 바위 player : 가위, 패`);
+                    }
+                    else if(player==2){
+                        console.log(`com : 바위 player : 바위, 무승부`);
+                        draw++;
+                    }else{
+                        console.log(`com : 바위 player : 보, 승`);
+                        win++;
+                    }
+                }else{
+                    if(player==1){
+                        console.log(`com : 보 player : 가위, 승`);
+                        win++;
+                    }
+                    else if(player==2){
+                        console.log(`com : 보 player : 바위, 패`);
+                    }else{
+                        console.log(`com : 보 player : 보, 무승부`);
+                        draw++;
+                    }
+                }
+            }
+            let rate = win/(10-draw);
+            let result = document.getElementById("result");
+            result.innerText = `${(rate*100).toFixed(2)}`;
+            console.log(`승 : ${win}, 무 : ${draw}, 패 : ${10-win-draw}`);
+        }
+        document.getElementById("btn").addEventListener(`click`,()=>{
+            rsp();
+        })
+
+    </script>
+</body>
+</html>

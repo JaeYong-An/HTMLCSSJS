@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 속성</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        th,td{
+            border: 1px solid black;
+            text-align: center;
+        }
+        thead>tr>th{
+            background-color: aqua;
+        }
+        tbody>tr:nth-of-type(even){
+            background-color: green;
+        }
+        tbody>tr:hover{
+            background-color: rgb(60, 143, 60);
+        }
+        .w20{
+            width: 20%;
+        }
+        .w30{
+            width: 30%;
+        }
+        .w50{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>점수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="w20">1</td>
+                <td class="w50">이동혁</td>
+                <td class="w30">90</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>이해찬</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>이풀선</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>이민형</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>엔시티</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">합계</td>
+                <td>???</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

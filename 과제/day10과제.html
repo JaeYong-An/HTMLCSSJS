@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+        ol li{
+            margin-top: 5px;
+        }
+        .aa{
+            text-align: center;
+        }
+        ul{
+            padding-left: 20px;
+            margin: 0;
+        }
+        h3{
+            font-weight: bold;
+            font-size: 27px;
+        }
+        form:nth-child(1)>button{
+            margin-left: 30px;
+        }
+        .ph3,.pbtn{
+            float: left;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <ol>
+            <li>이름 : <input type="text" id="name"></li>
+            <li>거주지 : <input type="text" id="addr"></li>
+            <li>
+                좋아하는 리스트
+                <ul>
+                    <li>1 : <input type="text" id="favor1"></li>
+                    <li>2 : <input type="text" id="favor2"></li>
+                    <li>3 : <input type="text" id="favor3"></li>
+                </ul>
+            </li>
+            <li>이메일 : <input type="email" id="email"></li>
+            <li>지금 가장 원하는 것 : <input type="text" id="wanna"></li>
+        </ol>
+        <button type="button" onclick="send()">객체로 전송</button>
+    </form>
+
+    <h3 class="ph3">전송받은 데이터 출력</h3>
+    <button type="button" class="pbtn" onclick="printf()">출력</button>
+
+    <table border="1px" width="50%" id="table">
+            
+    </table>
+
+    
+    <script>
+        
+        function send(){const dataObj = {
+            name : document.getElementById(`name`).value,
+            addr : document.getElementById(`addr`).value,
+            favor : {
+                favor1 : document.getElementById(`favor1`).value,
+                fovor2 : document.getElementById(`favor2`).value,
+                fovor3 : document.getElementById(`favor3`).value,
+            },
+            email : document.getElementById(`email`).value,
+            wanna : document.getElementById(`wanna`).value
+        };
+        console.log(dataObj)
+        }
+
+        function printf() {
+            let name = document.getElementById(`name`).value;
+            let addr = document.getElementById(`addr`).value;
+            let favor1 = document.getElementById(`favor1`).value;
+            let favor2 = document.getElementById(`favor2`).value;
+            let favor3 = document.getElementById(`favor3`).value;
+            let email = document.getElementById(`email`).value;
+            let wanna = document.getElementById(`wanna`).value;
+
+            let table = document.getElementById(`table`);
+            table.innerHTML = `
+            <tr>
+                <th>이름</th>
+                <td class="aa">${name}</td>
+            </tr>
+            <tr>
+                <th>거주지</th>
+                <td class="aa">${addr}</td>
+            </tr>
+            <tr>
+                <th>좋아하는 리스트</th>
+                <td>
+                    <ul>
+                        <li type="1">${favor1}</li>
+                        <li type="1">${favor2}</li>
+                        <li type="1">${favor3}</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td class="aa">${email}</td>
+            </tr>
+            <tr>
+                <th>지금 가장 원하는 것</th>
+                <td class="aa">${wanna}</td>
+            </tr>`;
+            
+        }
+        
+        
+    </script>
+</body>
+</html>

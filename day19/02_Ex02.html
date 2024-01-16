@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let txt = true;
+        let body =  document.querySelector(`body`);
+        body.innerHTML = `<button type="button" id="create">엘리먼트 만들기</button>`;
+        document.getElementById(`create`).addEventListener(`click`,()=>{
+            let str = '';
+            str += `<br><button type="button" id="btn" onclick="printmsg()">생성된 버튼</button>`;
+            body.innerHTML += str;
+        });
+
+        function printmsg() {
+            if(txt){
+                let str = '';
+                str += `<h3>생성된 버튼을 클릭함</h3>`;
+                body.innerHTML += str;
+                txt = false;
+            }
+        }
+    </script>
+</body>
+</html>

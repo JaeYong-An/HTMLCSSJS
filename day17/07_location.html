@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        location 객체는 브라우저의 주소표시줄 입력에 관련된 객체
+        location.href = 'url' : url로 이동
+        location.replace('url') : url로 이동 / history 객체에 저장하지 않음
+        location.assign('url') : url로 이동 / hostory 객체에 저장
+        locarion.reload() : 현재 페이지 새로고침
+    -->
+    <button type="button" id="movehref"></button>
+    <button type="button" id="movereplace"></button>
+    <button type="button" id="moveassign"></button>
+    <button type="button" id="movereload"></button>
+    <script>
+        document.getElementById(`movehref`).onclick=()=>{
+            location.href = 'http://www.naver.com';
+        }
+        document.getElementById(`movereplace`).onclick=()=>{
+            location.replace(`http://www.google.co.kr`);
+        }
+        document.getElementById(`moveassign`).onclick=()=>{
+            location.assign('http://www.daum.net');
+        }
+        document.getElementById(`movereload`).onclick=()=>{
+            location.reload();
+        }
+    </script>
+    <a href="08_history.html">8</a>
+</body>
+</html>

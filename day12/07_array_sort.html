@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        배열의 정렬은 문자기반으로 정렬됨
+        array.sort() : 문자기준의 오름처순
+        array.reverse() : 문자기준 내림차순
+        정렬할 배열의 원소가 숫자일 경우
+        콜백함수를 이용하여 내부 연산을 통해 정렬
+        array.sort(function(a,b)){
+            return a-b; 오름차순
+            return b-a; 내림차순
+        }
+    -->
+    <script>
+        const arr = [];
+        for(let i=0;i<6; i++){
+            let num = Math.floor((Math.random()*45)+1);
+            arr[i] = num;
+        }
+
+        console.log(arr.sort(function(a,b){
+            return a-b;
+        }));
+        console.log(arr.sort(function(a,b){
+            return b-a;
+        }));
+        const cars = [
+            {type:'volvo', year:2020},
+            {type:`amw`, year:2021},
+            {type:`benz`, year:2022}
+        ];
+        console.log(cars);
+        console.log(cars.sort(function(a,b){
+            return b.year-a.year;
+        }));
+        cars.sort(function(a,b){
+            let x = a.type.toLowerCase();
+            let y = b.type.toLowerCase();
+            if(x>y){
+                return 1;
+            }
+            if(x<y){
+                return -1;
+            }
+            return 0;
+        })
+        console.log(cars);
+    </script>
+</body>
+</html>

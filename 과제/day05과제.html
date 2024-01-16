@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        div{
+            box-sizing: border-box;
+        }
+        button{
+            cursor: pointer;
+        }
+        .left, .right{
+            float: left;
+            display: block;
+            height: 50px;
+            border: 2px solid #19ce60;
+        }
+        .left{
+            width: 300px;
+            border-right: 0px;
+        }
+        .right{
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+            background-color: #19ce60;
+        }
+        .search{
+            border: 0px;
+            outline: none;
+            width: 220px;
+            font-size: 24px;
+            line-height: 42px;
+            margin-left: 5px;
+        }
+        .key{
+            border: 0px;
+            font-size: 20px;
+            width: 18px;
+            height: 15px;
+            background-color: white;
+            color: rgba(128, 128, 128, 0.678);
+        }
+        .down{
+            color: #19ce60;
+            border: 0px;
+            margin-left: 10px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <div class="outer">
+            <div class="left">
+                <input type="text" class="search" name="search">
+                <button class="key"><i class="bi bi-keyboard"></i></button>
+                <button class="down">▼</button>
+            </div>
+            <button type="submit" class="right"><i class="bi bi-search"></i></button>
+        </div>
+    </form>
+</body>
+</html>

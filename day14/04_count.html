@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        button 2개를 준비 + / -
+        + => 값이 1씩 증가
+        - => 값이 1씩 감소
+    -->
+    <h1 id="number">0</h1>
+    <div>
+        <button id="plus">+</button>
+        <button onclick="minus()">-</button>
+    </div>
+
+    <script>
+        let cnt = 0;
+        let number = document.getElementById(`number`);
+        // function plus() {
+        //     cnt++;
+        //     number.innerText = cnt;
+        // }
+        function minus() {
+            if(cnt>0){
+                cnt--;
+            }
+            number.innerText = cnt;
+        }
+        document.getElementById(`plus`).addEventListener(`click`,()=>{
+            cnt++;
+            number.innerText = cnt;
+        })
+    </script>
+</body>
+</html>

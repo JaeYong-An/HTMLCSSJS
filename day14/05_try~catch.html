@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        예상되는 에러를 try{ code... } 영역에 배치하고, 만약 에러가 발생되면
+        catch(err){code...} : 에러 발생시 예외처리를 하는 곳
+        트라이캐치로 예외처리를 하면 프로세스를 멈추지 않고 지속시킬 수 있음
+        finally 영역 : 예외처리와 관계없이 무조건 코드를 실행하는 영역
+        throw : 예외를 고의적으로 발생시키는 키워드 throw + 예외발생 후 처리할 코드
+
+    -->
+    <script>
+        console.log(`프로세스 시작`);
+        try {
+            alert(`경고창`);
+            throw `throw error`;
+        } catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        } finally{
+            console.log(`꼭 출력되야하는 문구`);
+        }
+        console.log(`프로세스 종료`);
+    </script>
+</body>
+</html>

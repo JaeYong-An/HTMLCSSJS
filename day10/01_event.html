@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .s{
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 객체는 전역 객체로써 모든 태그에 객체를 참조시킬 수 있다</h1>
+    <UL id="ul1" class="uls">
+        <li>
+            a tag와 button tag에 이벤트를 주로 참조시켜 클릭에 대한 반응울 기대할 수 있게 만드는 게 일반적
+        </li>
+        <li>
+            a href 속성에 의해 자체 이동(동기화 방식)이 구현되어서 별도의 이동을 먹는 코드가 필요
+        </li>
+        <li>
+            객체에 이벤트를 부여하는 방식에는 크게 3가지가 있따(각자 목적과 작동방식이 다르다)
+        </li>
+    </UL>
+    <ul id="ul2" class="uls">
+        <li>
+            화면의 출력영역을 document 영역 (객체) 라고 한다
+        </li>
+        <li>
+            html태크는 html element, 속성은 attribute, 일반텍스트 textnote 라고 함
+        </li>
+        <li>
+            html로 출력하기 : innerHTML이라는 property를 사용
+        </li>
+        <li>
+            text로 출력 : innerText property 사용
+        </li>
+        <li>
+            html element를 id값으로 객체 가져오기 : getElementById(`idName`)
+        </li>
+        <li>
+            html element를 css 선택자를 사용하여 가져오기 : querySelector
+        </li>
+    </ul>
+
+    <button type="button" onclick="eventF()">클릭해보세요</button>
+    <button type="button" onclick="eventF2()">클릭해보세요</button>
+    <button type="button" onclick="alert(`경고창 띄우기`)">alert창</button>
+
+     <button type="button" id="testBtn">test button</button>
+     <h1 id="printResult">
+
+     </h1>
+
+     <script>
+        // document.addEventListener(`click`,(e)=>{
+        //     console.log(e.target);
+        // })
+        let cnt = 1;
+        document.getElementById(`testBtn`).addEventListener(`click`,()=>{
+            printResult.innerText=`${cnt}번 버튼을 클릭`;
+            cnt++;
+        })
+
+        function eventF() {
+            let printResult = document.getElementById(`printResult`);
+            console.log(printResult);
+            printResult.innerText=`1번 버튼을 클릭`;
+        }
+        eventF();
+        let num = 1;
+        function eventF2() {
+            
+            let printResult = document.getElementById(`printResult`);
+            // style="color:red" : 스타일 요소가 적을 때
+            // class는 스타일이 많을 경우
+            printResult.innerHTML=`<span class="s" style="color:red">스팬태그를 사용했습니다. ${num}</span>`;
+            num++;
+        }
+     </script>
+</body>
+</html>

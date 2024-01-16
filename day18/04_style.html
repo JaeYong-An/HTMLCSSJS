@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  
+        element의 css 적용
+        element.style.property 형식으로 접근 및 변경이 가능
+        property는 하이픈 적용X, 띄어쓰기도 적용X
+        하이픈을 제거하고 카멜표기법
+        Element.setAttribute(name,value) : element 속성을 부여
+        이미 있는 속성이면 업데이트, 없는 속성아면 추가
+    -->
+    <h1 id="h1">색상변경</h1>
+    <input type="text" id="color">
+    <button type="button" id="btn">변경</button>
+    <script>
+        document.getElementById(`btn`).addEventListener(`click`,()=>{
+            const h1 = document.getElementById(`h1`);
+            let color = document.getElementById(`color`).value;
+            h1.style.backgroundColor = color;
+        })
+    </script>
+</body>
+</html>

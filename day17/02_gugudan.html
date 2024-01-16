@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style id="style">
+    </style>
+</head>
+<body>
+    <h1>구구단 영역(2*1=2 ~ 9*9=81) 내에서 랜덤으로 문제를 내면 정답을 맞추는 문제</h1>
+    <ul>
+        <li>총 문제는 10문제 출제</li>
+        <li>문제를 풀 때 정답, 오답의 결과를 나타냄</li>
+        <li>총 10개의 문제중 정답률을 출력</li>
+    </ul>
+    <button onclick="question()">문제 출제</button>
+    <div class="con"></div>
+    <button onclick="answer()">정답 확인</button>
+    <h3 id="rate"></h3>
+    <h3 id="tRate"></h3>
+    <script>
+        // let tPass = 0;
+        // let tFail = 0;
+        let check = false;
+        const rate = document.getElementById(`rate`);
+        const tRate = document.getElementById(`tRate`);
+        const div = document.querySelector(`div`);
+        const style = document.querySelector(`style`);
+        let ans = new Array();
+        function question() {
+            rate.innerText = ``;
+            let str = '';
+            for(let i = 1; i<=10; i++){
+                let num1 = Math.floor((Math.random()*8)+2);
+                let num2 = Math.floor((Math.random()*9)+1);
+                str += `<div>${i}. <span>${num1}X${num2}=</span><input type="text" id="userAns${i}"></div>`;
+                ans[i-1] = num1*num2;
+            }
+            div.innerHTML = str;
+            check = false;
+        }
+        function answer() {
+            if(!check){
+                check = true;
+                let pass = 0;
+                let fail = 0;
+                for(let i = 1; i<=10; i++){
+                    const userAns = document.getElementById(`userAns${i}`);
+                    if(ans[i-1]==userAns.value){
+                        pass++;
+                        // tPass++;
+                        userAns.value += `  정답`;
+                        userAns.style.backgroundColor=`green`;
+                    }else{
+                        fail++;
+                        // tFail++;
+                        userAns.value += `  오답`;
+                        userAns.style.backgroundColor=`red`;
+                    }
+                    userAns.disabled = 'true';
+                }
+                rate.innerText = `정답률 : ${(pass/(pass+fail)*100)}%`;
+                // tRate.innerText = `총 정답률 : ${(tPass/(tPass+tFail)*100)}%`;
+            }
+        }
+    </script>
+</body>
+</html>

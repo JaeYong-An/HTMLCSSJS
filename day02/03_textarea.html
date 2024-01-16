@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textarea 태그</title>
+</head>
+<body>
+    <!-- 
+        input text 단일라인, textarea는 다중라인 입력을 지원
+        cols, rows textarea의 크기를 결정
+        ㅡmaxlength : 최대 글자
+        빈 공간도 밸류값으로 인식 띄어쓰가, 빈 공간 우의
+        리드온리, 디스에이블,required(필수속성) 가능
+     -->
+     <form action="">
+        <label for="content">상세내용</label>
+        <textarea name="content" id="content" cols="50" rows="10" placeholder="요것 됩니다.">
+            이것
+        </textarea>
+        <button type="submit">등록버튼</button>
+        <!-- pre 태그 : 태그안의 코드가 입력된 그대로 보이게 하는 태그 -->
+        <pre>
+        인녕하세요 제 이름은 <b>홍길동</b>입니다.
+        </pre>
+     </form>
+     
+</body>
+</html>

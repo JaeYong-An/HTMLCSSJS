@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적 확인</legend>
+            이름 : <input type="text" id="name"> <br>
+            국어 : <input type="number" id="kor"> <br>
+            영어 : <input type="number" id="eng"><br>
+            수학 : <input type="number" id="math"><br>
+            <button type="button" onclick="sum()">계산</button>
+        </fieldset>
+    </form>
+
+    <h3 id="result">
+    </h3>
+
+    <script>
+        function sum() {
+            let name = document.getElementById('name').value;
+            let kor = parseInt(document.getElementById('kor').value);
+            let eng = parseInt(document.getElementById('eng').value);
+            let math = parseInt(document.getElementById('math').value);
+
+            let total = kor+eng+math;
+            let avg = total/3;
+            let fail = avg>=60 ? `pass`:`fail`;
+            
+            let result = document.getElementById('result');
+
+            if(kor>100||eng>100||math>100||kor<0||eng<0||math<0){
+                alert(`잘못된 값`);
+                document.getElementById('kor').value = ``;
+                document.getElementById('eng').value = ``;
+                document.getElementById('math').value = ``;
+                result.innerText = `다시 입력`;
+                return;
+            }
+
+            result.innerText = `이름 : ${name}, 합계 : ${total}, 평균 : ${(avg).toFixed(2)}, 합격여부 : ${fail}`;
+        }
+    </script>
+</body>
+</html>

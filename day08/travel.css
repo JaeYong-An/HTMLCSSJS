@@ -1,0 +1,35 @@
+header>div{
+    border: 5px solid black;
+    width: 130px;
+    height: 50px;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    position: absolute;
+    display: block;
+}
+h1{
+    text-align: center;
+    line-height: 20%;
+}
+.link{
+   left: 50%;
+   top: 15%;
+   position: absolute;
+   transform: translate(-50%);            
+}
+.link>a{
+    text-decoration: none;
+    margin: 10px 30px;
+    font-size: 20px;
+    color: rgb(59, 59, 209);
+}
+.link a:hover{
+    color: rgb(130, 130, 230);
+}
+img{
+    top: 24%;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+}

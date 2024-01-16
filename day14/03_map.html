@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        map : key/value 형태의 데이터를 1개의 배열로 만들어서 다시 배열에 저장하는 방식
+        선언 및 초기화 : new Map(), new Map([`key`,`value`],[`key`,`value`],.....);
+        기본적으로 중첩 구조를 가지고 있기 때문에 key 중복 확인 필수
+        key를 식별자로 사용하는 get(keyName), set(keyName, value) 메소드 제공
+        2차원 배열 형태와 비슷한 구조
+        key 타입은 문자로 하는 것이 원칙 => key타입이 달라지면 간리가 어려워지기 때문
+        get(keyName) : key에 해당하는 value값을 리턴
+        set(keyName, value) : key에 해당하는 value를 변경
+        delete(key)/has()/forEach()/keys()/entries()/size
+    -->
+    <script>
+        const myMap = new Map();
+        myMap.set(`html`,96);
+        myMap.set(`css`,100);
+        myMap.set(`js`,92);
+        console.log(myMap);
+        console.log(myMap.get(`js`));
+
+        myMap.delete(`css`);
+        console.log(myMap);
+
+        myMap.forEach(function(v,i,s){
+            console.log(i,v,s);
+        })
+        console.log(myMap.entries());
+        console.log(myMap.keys());
+        console.log(myMap.values());
+        
+        for(const iter of myMap){
+            console.log(iter);
+            for(const key of iter){
+                console.log(key);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 80vh;
+            background-image: url(../image/bag.jpg);
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            font-size: 60px;
+            margin-bottom: 0;
+        }
+        header{
+            text-align: center;
+            margin-top: 200px;
+        }
+        p{
+            font-size: 19px;
+        }
+        div div{
+            display: block;
+            float: left;
+            width: 200px;
+        }
+        .box{
+            position: absolute;
+            transform: translate(-50%);
+            left: 50%;
+            width: 780px;
+            height: auto;
+        }
+        ul{
+            margin-top: 0;
+        }
+        div div p{
+            margin-bottom: 0;
+        }
+        div div:nth-child(1), div div:nth-child(2){
+            margin-right: 90px;
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <section></section>
+    <script>
+        let str = `https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json`;
+        let str1 = '';
+        function printH(){
+            fetch(str)
+            .then(resp => resp.json())
+            .then(result => printData(result))
+            .catch(err => console.log(err));
+        }
+
+        function printData(obj){
+            const header = document.querySelector(`header`);
+            const section = document.querySelector(`section`);
+            header.innerHTML = `<h1>${obj.squadName}</h1>`;
+            header.innerHTML += `<br><p><b>Hometown : ${obj.homeTown} / Formed : ${obj.formed}</b></p>`;
+            str1 += `<div class="box">`;
+            for(const mem in obj.members){
+                str1 += `<div>`;
+                str1 += `<p>${obj.members[mem].name}</p>`;
+                str1 += `<br>Secret identity : ${obj.members[mem].secretIdentity}<br>Age : ${obj.members[mem].age}`;
+                str1 += `<br>Superpower<ul>`;
+                for(let i = 0; i<obj.members[mem].powers.length; i++){
+                    str1 += `<li>${obj.members[mem].powers[i]}</li>`;
+                }
+                str1 += `</ul></div>`;
+            }
+            str1 += `</div>`;
+            section.innerHTML += str1;
+        }
+        
+        printH();
+    </script>
+</body>
+</html>

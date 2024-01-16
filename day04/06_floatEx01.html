@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- pbox 안에 박스 3개 구성 -->
+    <!-- 해당 3개 박스가 화면을 꽉 차게 동일한 크기로 구성 -->
+    <style>
+        .pbox>div{
+            /* 자식 박스의 100% 기준은 부모 박스 */
+            /* calc 연산자를 붙여서 쓰면 올바른 작동을 안 할 수 있다 */
+            width: calc(100%/3);
+            height: 100px;
+            float: left;
+        }
+        .box:nth-child(1){
+            background-color: aqua;
+        }
+        .box:nth-child(2){
+            background-color: rgb(125, 236, 97);
+        }
+        .box:nth-child(3){
+            background-color: rgb(229, 145, 222);
+        }
+        .pbox::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="pbox">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

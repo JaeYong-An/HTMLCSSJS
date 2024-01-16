@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(238, 191, 191);
+        }
+        div{
+            width: 100%;
+        }
+        p{
+            margin: 20px 40px 0px 40px;
+        }
+        p:first-of-type{
+            color: red;
+            font-weight: bold;
+        }
+        p:nth-child(2){
+            font-weight: bold;
+            font-size: 20px;
+        }
+        p:nth-child(3){
+            color: rgb(82, 80, 80);
+        }
+        .header>p{
+            margin-left: 30px;
+            margin-top: auto;
+            line-height: 60px;
+            color: black;
+        }
+        .header{
+            height: 60px;
+        }
+        .main{
+            width: 50%;
+            height: 600px;
+            background-image: url(../image/vndrud.jpg);
+            background-size: 100% 100%;
+            float: left;
+        }
+        .subject{
+            width: 50%;
+            height: 300px;
+            float: right;
+        }
+        .content{
+            background-image: url(../image/bag.jpg);
+            width: 25%;
+            height: 300px;
+            background-size: 100% 100%;
+            float: left;
+        }
+        .sub{
+            background-image: url(../image/more.JPG);
+            width: 25%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: right;
+        }
+        .sub:hover{
+            cursor: pointer;
+        }
+        .footer{
+            background-image: url(../image/bag2.jpg);
+            width: 25%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: right;
+        }
+        @media screen and (max-width : 1200px) {
+            .header{
+                height: 60px;
+            }
+            .main{
+            width: 100%;
+            height: 600px;
+            background-image: url(../image/cb.jpg);
+            background-size: 100% 100%;
+            }
+            .subject{
+            width: 100%;
+            height: 300px;
+            }
+            .content{
+            background-image: url(../image/dgs.jpg);
+            width: 50%;
+            height: 300px;
+            background-size: 100% 100%;
+            }
+            .sub{
+            background-image: url(../image/hbg.jpg);
+            width: 50%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: left;
+            }
+            .footer{
+            background-image: url(../image/jb.jpg);
+            width: 50%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: left;
+            }
+        }
+        @media screen and (max-width : 900px) {
+            .header{
+                height: 60px;
+            }
+            .main{
+            width: 100%;
+            height: 600px;
+            background-image: url(../image/bm.jpg);
+            background-size: 100% 100%;
+            }
+            .subject{
+            width: 100%;
+            height: 300px;
+            }
+            .content{
+            background-image: url(../image/dog1.jpg);
+            width: 100%;
+            height: 400px;
+            background-size: 100% 100%;
+            }
+            .sub{
+            background-image: url(../image/dog3.jpg);
+            width: 50%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: left;
+            }
+            .footer{
+            background-image: url(../image/dog2.jpg);
+            width: 50%;
+            height: 150px;
+            background-size: 100% 100%;
+            float: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>IN'O</p>
+    </div>
+    <div class="main"></div>
+    <div class="subject">
+        <p>Portfolio <br><br></p>
+        <p>Make Hardware Soft</p>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</p>
+    </div>
+    <div class="content"></div>
+    <div class="sub">
+    </div>
+    <div class="footer"></div>
+</body>
+</html>

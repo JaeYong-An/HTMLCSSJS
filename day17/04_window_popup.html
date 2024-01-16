@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    window 메소드 종류
+    window.open(`url`,`window name`, `option(size,scroll..)`);
+    alert(); : 경고창, prompt(); : input 포함, confirm(); : 확인/취소
+    setInterval(function, millisecond); : 일정 간격 지속적으로 실행문을 실행시킬 때 사용
+    serTimeout(function, millisecond); : 일정 시간동안 실행시킬 때 사용   
+    -->
+    <button type="button" onclick="openWindow()">열기</button>
+    <button type="button" onclick="closeWindow()">닫기</button>
+    <button type="button" onclick="alertEx()">alert</button>
+    <button type="button" onclick="promptEX()">prompt</button>
+    <button type="button" onclick="confirmEx()">confirm</button>
+    <h3 id="msg"></h3>
+    <script>
+        let myWindow;
+        function openWindow(){
+            myWindow = window.open(`http://127.0.0.1:5500/day17/02_gugudan.html`,`myWindow`,`width=400, height=500`);
+        }
+        function closeWindow(){
+            myWindow.close();
+        }
+        function alertEx(){
+            alert(`alert연습`);
+        }
+        function promptEX(){
+            let name = prompt(`이름을 입력해주세요.`);
+            document.getElementById(`msg`).innerText = name;
+        }
+        function confirmEx(){
+            let con = confirm(`confirm연습`);
+            if(con){
+                document.getElementById(`msg`).innerText = `확인`;
+            }else{
+                
+                document.getElementById(`msg`).innerText = `취소`;
+            }
+        }
+    </script>
+    <a href="05_setTimeOut.html">5</a>
+</body>
+</html>

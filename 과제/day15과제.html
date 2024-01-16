@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 100px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="area top">
+            <input type="text" id="result" disabled><br>
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" onclick="plus()">+</button>
+            <button type="button" onclick="location.reload()">c</button><br>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" onclick="minus()">-</button><br>
+            <button type="button" value="1">1</button>
+            <button type="button" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" onclick="multi()">*</button><br>
+            <button type="button" onclick="dot()">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" onclick="tot()">=</button>
+            <button type="button" onclick="divi()">/</button>
+        </div>
+    </div>
+    <script>
+        let result = document.getElementById(`result`);
+        let num = '';
+        let sum = '';
+        let min = '';
+        let mul = '';
+        let div = '';
+        let op = '';
+        document.querySelector(`.area`).addEventListener(`click`,(e)=>{
+            if(e.target.value!=undefined){
+                result.value += e.target.value;
+            }
+        })
+        function plus() {
+            sum = Number(result.value);
+            result.value = '';
+        }
+        function minus() {
+            min = Number(result.value);
+            result.value = '';
+        }
+        function multi() {
+            mul = Number(result.value);
+            result.value = '';
+        }
+        function divi() {
+            div = Number(result.value);
+            result.value = '';
+        }
+        function dot() {
+            if(result.value==''){
+                result.value += '0.';
+            }else if(!(result.value).includes('.')){
+                result.value += '.';
+            }
+            
+        }
+        function tot() {
+            if(sum!=''){
+                let tot = sum+Number(result.value);
+                result.value = tot;
+                sum = '';
+            }else if(min!=''){
+                let tot = min-Number(result.value);
+                result.value = tot;
+                min = '';
+            }else if(mul!=''){
+                let tot = mul*Number(result.value);
+                result.value = tot;
+                mul = '';
+            }else if(div!=''){
+                let tot = div/Number(result.value);
+                result.value = tot;
+                div = '';
+            }
+        }
+    </script>
+</body>
+</html>

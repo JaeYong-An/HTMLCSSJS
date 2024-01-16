@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제</title>
+    <!-- 
+        div를 3개 만들어
+        네이버, 구글, 다음 사이트로 연결되게 하고,
+        각각 div의 색과 모양을 달리하여 스타일 주기
+        링크 색 변경
+
+        ul>li 1~10까지 값을 쓰고,
+        짝수 : 빨간색
+        3,6,9 : 초록색
+        1,10 : 굵게
+        뒤 요소에 .을 추가
+     -->
+     <style>
+        div{
+            background: antiquewhite;
+            width: 53px;
+            height: 21px;
+            border: 1px solid black;
+        }
+        a{
+            text-decoration: none;
+        }
+        #d1{
+            color: aqua;
+            font-style: italic;
+        }
+        #d2{
+            color: aquamarine;
+            font-style: oblique;
+        }
+        #d3{
+            color: azure;
+            font-style: unset;
+        }
+        ul>li:nth-of-type(even){
+            color: red;
+        }
+        ul li:nth-of-type(3n){
+            color: rgb(0, 255, 0);
+        }
+        ul li:first-child,ul li:last-child{
+            font-weight: bold;
+        }
+        ul li::after{
+            content: ".";
+        }
+        ul>li{
+            list-style: none;
+            display: inline;
+            margin-left: 20px;
+        }
+     </style>
+</head>
+<body>
+    <div>
+        <a href="http://www.naver.com" target="_blank" id="d1">네이버</a>
+    </div>
+    <div>
+        <a href="http://www.google.co.kr" target="_blank" id="d2">구글</a>
+    </div>
+    <div>
+        <a href="http://www.daum.net" target="_blank" id="d3">다음</a>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+</body>
+</html>

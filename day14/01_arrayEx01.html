@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const memberObject={
+            name:'hong',
+            age:20,
+            married:true,
+            favors:[`baseball`,`game`,`movie`,`ete....`],
+        };
+        const people=[];
+        for(let i=0; i<5; i++){
+            people.push(memberObject);            
+        }
+        console.log(people);
+        console.log(`------------`);
+        console.log(people[0]);
+        people[1].name = `kim`;
+        people[2].age = 1;
+        console.log(people);
+        console.log(`------------`);
+
+        for(let m of people){
+            // console.log(`----배열 안----`);
+            for(let key in m){
+                // console.log(`----객체 안----`);
+                if(key != `favors`){
+                    console.log(m[key]);
+                }else{
+                    console.log(`----favor 안----`);
+                    for(let f of m[key]){
+                        console.log(f);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

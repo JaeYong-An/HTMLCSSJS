@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .aa{
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        input에 파일명.확장자 형태로 입력하여 전송버튼을 클릭하면
+        이미지파일인지 검사
+        이미지파일이면 정상파일입니다(초록색)
+        아니면 이미지파일만 가능합니다(빨간색)
+        이미지파일 : jpg, png, gif, jpeg
+         - 대문자도 판단 가능해야 함
+    -->
+    <span>파일명 : </span> 
+    <input type="text" id="file">
+    <button type="button" id="send">전송</button><br>
+    <div id="result">
+    </div>
+
+    <script>
+        let result = document.getElementById(`result`);
+        function send() {
+            let fileName = document.getElementById(`file`).value;
+            let name = (fileName.substring(fileName.indexOf(`.`)+1)).toLowerCase();
+            if(name ==`jpg`||name==`png`||name==`jpeg`||name==`gif`){
+                result.innerHTML = `<span class="aa" style="color:green">정상파일입니다.</span>`;
+            }else{
+                result.innerHTML = `<span class="aa" style="color:red">이미지파일만 가능합니다.</span>`;
+            }
+        }
+        document.getElementById(`send`).addEventListener(`click`,()=>{
+            send();
+            document.getElementById(`file`).value = '';
+        })
+    </script>
+</body>
+</html>

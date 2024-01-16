@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        랜덤 숫자만들기 버튼을 클릭하면 컴푸터가 랜덤 수 1~99 숫자 1개를 생성
+        숫자가 생성되면 '컴푸터가 랜덤으로 숫자를 생성했습니다'
+        인풋에 1~99 중 숫자를 입력하고 맞추기 버튼을 클릭하면
+        컴푸터의 숫자보다 높은 숫자면 다운 낮으면 업 출력
+    -->
+    <button type="button" id="create">랜덤 번호 생성</button><br>
+    <h3 id="comc"></h3>
+    <input type="number" id="number" max="100" min="1">
+    <button type="button" id="answer">맞추기</button>
+    <button type="button" onclick="location.reload()">다시시도</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let cnt = 0;
+        let com = 0;
+        function comc() {
+            document.getElementById(`comc`).innerText = `컴퓨터가 랜덤 번호(1~100)를 생성했습니다.`;
+            com = Math.floor((Math.random()*100)+1);
+            document.getElementById(`result`).innerText = ``;
+            document.getElementById(`number`).value = '';
+        }
+        function match() {
+            cnt++;
+            let number = document.getElementById(`number`).value;
+            if(number>com){
+                document.getElementById(`result`).innerText = `${cnt}번째 도전, DOWN`;
+            }else if(number<com){
+                document.getElementById(`result`).innerText = `${cnt}번째 도전, UP`;
+            }else{
+                document.getElementById(`result`).innerText = `${cnt}번째 도전, 정답`;
+                cnt=0;
+            }
+        }
+        document.getElementById(`create`).addEventListener(`click`,()=>{
+            comc();
+        });
+        document.getElementById(`answer`).addEventListener(`click`,()=>{
+            match();
+        });
+    </script>
+</body>
+</html>

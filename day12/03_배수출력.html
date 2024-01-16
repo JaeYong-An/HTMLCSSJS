@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        약수 출력하기
+    </h1>
+    <form action="">
+        <input type="number" id="num">
+        <button type="button" id="btn" onclick="ys()">약수 출력</button>
+
+    </form>
+    <h3 id="result">
+        약수 값 출력/갯수 <br>
+    </h3>
+    <script>
+        let result = document.getElementById("result");
+        function ys(){
+            let cnt = 0;
+            let text = `약수 값 출력/갯수 <br>`;
+            for(let i=2; i<=num; i++){
+                if(num%i==0){
+                    cnt++;
+                    text+=`${i} `;
+                }
+            }
+            text+=`, 약수는 ${cnt}개`;
+        }
+        function clear() {
+            text = '';
+        }
+    </script>
+</body>
+</html>

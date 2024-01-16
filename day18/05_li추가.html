@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn1" onclick="addAll()">li 한번에 추가</button>
+    <button type="button" id="btn2" onclick="add()">li 하나씩 추가</button>
+
+    <button type="button" id="btn3" onclick="addAll2()">li 한번에 추가</button>
+    <button type="button" id="btn4" onclick="add2()">li 한번에 추가</button>
+    <ul id="ul"></ul>
+    <hr>
+    <ol id="ol"></ol>
+    <hr>
+    <ul id="ul2"></ul>
+    <hr>
+    <ol id="ol2"></ol>
+    <hr>
+    <script>
+        //html, css , javascript, sql
+        let p = [`HTML`, `CSS`, `javascript`, `SQL`];
+        let cnt = 0;
+        let remove = false;
+        const ul = document.getElementById(`ul`);
+        const ol = document.getElementById(`ol`);
+        function addAll() {
+            if(remove){
+                ul.innerHTML = '';
+                remove = false;
+                return;
+            }
+            ul.innerHTML = '';
+            for(let i = 0; i<p.length; i++){
+                ul.innerHTML += `<li>${p[i]}</li>`;
+            }
+            remove = true;
+        }
+        function add() {
+            if(cnt==p.length){
+                cnt=0;
+                ol.innerHTML = '';
+            }else{
+                ol.innerHTML+=`<li>${p[cnt]}</li>`;
+                cnt++;
+            }
+        }
+        /*
+        createElement : element를 생성
+        appendChild : 다른 엘리먼트의 자식으로 추가
+        */
+        function addAll2(){ 
+            const ul2 = document.getElementById(`ul2`);
+            ul2.innerHTML = '';
+            for(let  i = 0; i<p.length; i++){
+                let li = document.createElement(`li`);
+                li.innerText = p[i];
+                ul2.appendChild(li);
+            }
+        }
+        let cnt2 = 0;
+        function add2() {
+            if(cnt2==p.length){
+                return;
+            }
+            const ol2 = document.getElementById(`ol2`);
+            let li = document.createElement(`li`);
+            li.innerText = p[cnt2];
+            cnt2++;
+            ol2.appendChild(li);
+        }
+    </script>
+</body>
+</html>

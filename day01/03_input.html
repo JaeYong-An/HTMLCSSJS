@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input : 태그는 단일 태그로 속성값에 따라
+    다양한 기능들을 활용할 수 있음
+    input form 태그와 같이 사용 (나중에 다시 확인)
+    <input type="속성명"> -->
+    <!-- type="text" : 가장 많이 사용, 영문, 한글, 특수문자 등의 문자열을 처리
+    placeholder : 흐리게 표시, 안내문구 같은 것을 입력할 때 사용,
+    문자를 입력하면, 사라짐 -->
+    <input type="text">
+    <input type="text" placeholder="미리보기">
+    <hr>
+    <!-- type="button" : 일반 버튼
+    type="reset" : 취소 버튼
+    type="submit" : 전송 버튼
+     -->
+     <form action="#">
+        <input type="text" name="name"><br>
+        <input type="text" name="age" id=""><br>
+        <input type="button" value="일반 버튼">
+        <input type="reset" value="취소 버튼">
+        <input type="submit" value="전송 버튼">
+    </form>
+    <!-- type="password" -->
+    <hr>
+    <input type="password">
+    <!-- type="checkbax" : 다중 선택 시 사용
+        name의 속성을 같이 사용 -->
+    <hr><br>
+    <form action="">
+        <p>좋아하는 과일을 선택 (복수 선택 가능)</p>
+        <input type="checkbox" name="fruit" value="apple">
+        <input type="checkbox" name="fruit" value="orange">
+        <input type="checkbox" name="fruit" value="banana">
+        <input type="submit" value="제출">
+    </form>
+     <hr>
+    <form action="">
+        <input type="checkbox" name="fruit" id="apple" value="apple">
+        <label for="apple">사과</label>
+        <label for="orange">
+        <input type="checkbox" name="fruit" id="orange" value="orange">
+        오렌지
+    </label>
+    <input type="submit" value="제출">
+    </form>
+    <hr><br>
+    <!-- type="radio" : 택1 -->
+    <form action="">
+        <label for="apple1">
+            <input type="radio" name="fruit" id="apple1" value="apple">
+            사과
+        </label>
+        <label for="banana">
+            <input type="radio" name="fruit" id="banana" value="banana">
+            바나나
+        </label>
+        <input type="submit" value="제출">
+    </form>
+    <hr><br>
+    <!-- form태그의 라디오버튼 라벨 -->
+    <form action="">
+        <label for="10">
+            <input type="radio" name="age" id="10" value="10">
+            10대
+        </label><br>
+        <label for="20">
+            <input type="radio" name="age" id="20" value="20">
+            20대
+        </label><br>
+        <label for="30">
+            <input type="radio" name="age" id="30" value="30">
+            30대
+        </label><br>
+        <label for="40">
+            <input type="radio" name="age" id="40" value="40">
+            40대
+        </label><br>
+        <input type="submit" value="제출">
+    </form>
+    <hr><br>
+    <form action="">
+        <input type="color" name="color" id="">
+        <input type="sumlit" value="submit">
+    </form>
+    <hr><br>
+    <!-- type="month" : 년 월 표시
+        type="week" : 년 주 표시
+        type="month" : 년 월 일 표시
+        type="month" : 년월일시분초
+        type="month" : -->
+
+    <!-- type="email": 이메일 형식 입력 받음 -->
+    <form action="">
+        <!-- type="search": 문자열 입력 뒤에 x 버튼이 생성 -->
+        <!-- type="file": 파일 첨부 선택 -->
+        <!-- type="hidden": 값을 안 보이게 숨김 -->
+        <input type="hidden" name="name" value="1234">
+        <input type="text" name="nick_name" value="영이">
+        <input type="submit" value="submit">
+    </form>
+    <hr><br>
+    <form action="">
+        <!-- type="number" : 위 아래 버튼이 생김, 숫자만 입력가능 -->
+        <!-- type="image" : 그림을 넣어주는 태구 
+            src : 이미지 경로 alt : 이미지가 없을 때 뜨는 단어-->
+
+        <input type="image" alt="그림없음" src="https://search.pstatic.net/common?type=f&size=206x206&quality=95&direct=true&src=http%3A%2F%2Fshop1.phinf.naver.net%2F20210522_279%2F1621673915289mxlar_JPEG%2F57809532425488875_-1425368071.jpg">
+        <input type="image" alt="강아지" src="../image/dog1.jpg">
+    </form>
+    <!-- type="url" : http:// url형식인지 체크-->
+    <form action="">
+        <!-- typr="range" : 상태바를 이용하여 범위 값을 나타냄 -->
+        <label for="vol">volumn</label>
+        <input type="range" id="vol" name=volumn max="15" nim="0">
+    </form>
+</body>
+</html>

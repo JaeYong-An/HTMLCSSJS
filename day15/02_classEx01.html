@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myAccount = {
+            name : `hong`,
+            balance : 0,
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            withdraw : function(amount){
+                this.balance -= amount;
+            },
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+        let yourAccount = {
+            name : `kim`,
+            balance : 1000,
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            withdraw : function(amount){
+                this.balance -= amount;
+            },
+            transfer : function(amount, otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        console.log(myAccount.name, `:`, myAccount.balance);
+        myAccount.deposit(10000);
+        console.log(myAccount.name, `:`, myAccount.balance);
+        myAccount.withdraw(3000);
+        console.log(myAccount.name, `:`, myAccount.balance);
+        myAccount.transfer(5000,yourAccount);
+        console.log(myAccount.name, `:`, myAccount.balance);
+        console.log(yourAccount.name, `:`, yourAccount.balance);
+
+        class Bank{
+            constructor(name, balance){
+                this.name = name;
+                this.balance = balance;
+            }
+            deposit(amount){
+                this.balance += amount;
+            }
+            withdraw(amount){
+                this.balance -= amount;
+            }
+            transfer(amount, account){
+                this.balance -= amount;
+                account.balance += amount;
+            }
+        }
+
+        let leeAcc = new Bank(`lee`,1000);
+        let choiAcc = new Bank(`choi`,2000);
+        console.log(leeAcc.name, `:`, leeAcc.balance);
+        console.log(choiAcc.name, `:`, choiAcc.balance);
+        leeAcc.deposit(10000);
+        console.log(leeAcc.name, `:`, leeAcc.balance);
+        leeAcc.withdraw(5000);
+        console.log(leeAcc.name, `:`, leeAcc.balance);
+        leeAcc.transfer(3000,choiAcc);
+        console.log(leeAcc.name, `:`, leeAcc.balance);
+        console.log(choiAcc.name, `:`, choiAcc.balance);
+    </script>
+</body>
+</html>

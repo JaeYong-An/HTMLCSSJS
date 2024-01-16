@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            border-style: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        가위바위보 게임
+        컴퓨터가 가위1 바위2 보3 증 히나를 결정하면, 나도 가위,바위,보 중 하나를 선택
+        가위바위보 버튼을 클릭하면 해당 값을 선택한 것으로 함
+        승률 (이긴 횟수/전체 경기)*100
+    -->
+    <button id="ss">
+        <img src="../image/가위.JPG" alt="">
+    </button>
+    <button id="rr">
+        <img src="../image/주먹.JPG" alt="">
+    </button>
+    <button id="pp">
+        <img src="../image/보.JPG" alt="">
+    </button><br>
+    당신 : <span id="player"></span><br>
+    컴퓨터 : <span id="com"></span><br>
+    <span id="result"></span><br>
+    현재 전적<br>
+    승 : <span id="win"></span><br>
+    무 : <span id="draw"></span><br>
+    패 : <span id="lose"></span><br>
+    승률 : <span id="rate"></span>% <br>
+    포인트 : <span id="point"></span><br>
+    <input type="number" id="bet" value="0"><br>
+    <input type="number" id="charge">
+    <button type="button" id="cbtn">충전</button>
+    
+    <script>
+        let point = 10000;
+        document.getElementById(`point`).innerText = point;
+        let win = 0;
+        document.getElementById(`win`).innerText = win;
+        let draw = 0;
+        document.getElementById(`draw`).innerText = draw;
+        let lose = 0;
+        document.getElementById(`lose`).innerText = lose;
+        let cnt = 0;
+        function charge() {
+            point = point+parseInt(document.getElementById(`charge`).value);
+            document.getElementById(`point`).innerHTML = point;
+        }
+        function win1(){
+            win++;
+            document.getElementById(`result`).innerText = `이겼습니다.`;
+            document.getElementById(`win`).innerText = win;
+            point = point+(parseInt(document.getElementById(`bet`).value)*0.95);
+            document.getElementById(`point`).innerHTML = point;
+            rate();
+        }
+        function draw1(){
+            draw++;
+            document.getElementById(`result`).innerText = `비겼습니다.`;
+            document.getElementById(`draw`).innerText = draw;
+            rate();
+        }
+        function lose1(){
+            lose++;
+            document.getElementById(`result`).innerText = `졌습니다.`;
+            document.getElementById(`lose`).innerText = lose;
+            point = point-document.getElementById(`bet`).value;
+            document.getElementById(`point`).innerHTML = point;
+            rate();
+        }
+        function ss() {
+            cnt++;
+            let com = Math.floor((Math.random()*3)+1);
+            if(com==1){
+                document.getElementById(`player`).innerText = `가위`;
+                document.getElementById(`com`).innerText = `가위`;
+                draw1();
+            }else if(com==2){
+                document.getElementById(`player`).innerText = `가위`;
+                document.getElementById(`com`).innerText = `바위`;
+                lose1();
+            }else{
+                document.getElementById(`player`).innerText = `가위`;
+                document.getElementById(`com`).innerText = `보`;
+                win1();
+            }
+        }
+        function rr() {
+            cnt++;
+            let com = Math.floor((Math.random()*3)+1);
+            if(com==1){
+                document.getElementById(`player`).innerText = `바위`;
+                document.getElementById(`com`).innerText = `가위`;
+                win1();
+            }else if(com==2){
+                document.getElementById(`player`).innerText = `바위`;
+                document.getElementById(`com`).innerText = `바위`;
+                draw1();
+            }else{
+                document.getElementById(`player`).innerText = `바위`;
+                document.getElementById(`com`).innerText = `보`;
+                lose1();
+            }
+        }
+        function pp() {
+            cnt++;
+            let com = Math.floor((Math.random()*3)+1);
+            if(com==1){
+                document.getElementById(`player`).innerText = `보`;
+                document.getElementById(`com`).innerText = `가위`;
+                lose1();
+            }else if(com==2){
+                document.getElementById(`player`).innerText = `보`;
+                document.getElementById(`com`).innerText = `바위`;
+                win1();
+            }else{
+                document.getElementById(`player`).innerText = `보`;
+                document.getElementById(`com`).innerText = `보`;
+                draw1();
+            }
+        }
+        function rate() {
+            let rate = win/cnt;
+            document.getElementById(`rate`).innerText = (rate*100).toFixed(2);
+        }
+        document.getElementById("ss").addEventListener(`click`,()=>{
+            ss();
+        })
+        document.getElementById("rr").addEventListener(`click`,()=>{
+            rr();
+        })
+        document.getElementById("pp").addEventListener(`click`,()=>{
+            pp();
+        })
+        document.getElementById(`cbtn`).addEventListener(`click`,()=>{
+            charge();
+        })
+    </script>
+</body>
+</html>

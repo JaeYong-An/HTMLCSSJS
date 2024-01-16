@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js Start</title>
+    <style>
+        /* css 영역 */
+
+    </style>
+    <script>
+        console.log("head안에서 작성한 스크립트")
+    </script>
+    <script src="let.js"></script>
+</head>
+<body>
+    <!-- html 영역 -->
+    <h1>자바스크립트 언어 사용법</h1>
+    <ol>
+        <li>
+            &lt;script&gt; &lt;/script&gt; 내부에 작성한다
+        </li>
+        <li>
+            파일이름.js 파일을 만들어서 내부에 코드작성 후 &lt;script src="?"&gt; &lt;/script&gt;
+            src="?" 경로로 불러온다.
+        </li>
+        <li>
+            head 내부에 스크립트 작성도 가능 (사용시 주의 !)
+        </li>
+        <li>
+            body 태그 내의 가장 하단에 script를 위치시켜 내부에 코드를 작성한다. (가장 많이 사용)
+        </li>
+        <li>
+            마지막 끝처리 ;
+        </li>
+    </ol>
+    <script>
+        // js 영역
+        //스크립트의 위치는 어느 곳이든 가능
+        //파일로 연결도 가능
+        //스크립트의 데이터를 읽는 순간 해당 요소가 생성되어 있지 않으면 error
+        //일반적으로 바디 영역의 데이터를 대상으로 하는 스크립트라면
+        //바디 하단에 적어주는 것이 error가 나지 않는다.
+        //콘솔 출력 console.log
+        let sum = 10;
+
+        console.log("처음 쓰는 로그 => "+sum);
+        console.log('글자를 씁니다. => '+sum);
+        console.log(`백틱을 사용하여 출력 => ${sum}`);
+    </script>
+    <script src="let.js"></script>
+</body>
+</html>

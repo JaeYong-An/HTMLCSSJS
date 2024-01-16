@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(../day08/travel.css);
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <p>
+                <h1>Travel</h1>
+            </p>
+        </div>
+    </header>
+    <main>
+        <div class="link">
+            <a href="#" onclick="home()">Home</a>
+            <a href="#" onclick="seoul()">Seoul</a>
+            <a href="#" onclick="tokyo()">Tokyo</a>
+            <a href="#" onclick="paris()">Paris</a>
+        </div>
+    </main>
+    <footer>
+        <div class="img" id="img"></div>
+    </footer>
+    <script>
+        const img = document.getElementById(`img`);
+        function home(){
+            img.innerHTML = `<img src="../image/Home.jpg" alt="" width="600px" height="400px">`;
+        }
+        function seoul(){
+            img.innerHTML = `<img src="../image/Seoul.jpg" alt="" width="600px" height="400px">`;
+        }
+        function tokyo(){
+            img.innerHTML = `<img src="../image/Tokyo.jpg" alt="" width="600px" height="400px">`;
+        }
+        function paris(){
+            img.innerHTML = `<img src="../image/Paris.jpg" alt="" width="600px" height="400px">`;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

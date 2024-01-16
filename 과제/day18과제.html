@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div:first-child{
+            border-bottom: 5px solid orange;
+        }
+        button{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>컴퓨터가 0~9의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는 게임</h1>
+        <h3>게임 규칙</h3>
+        <ol>
+            <li>세 자리의 숫자는 각 자리수를 갖고 서로 중복되지 않는다</li>
+            <li>각 자리수와 입력한 숫자의 자리수가 동일하면 1S</li>
+            <li>입력한 숫자가 포함되어 있으나 자리수가 동일하지 않으면 1B</li>
+            <li>입력한 숫자가 전혀 포함되어 있지 않으면 out</li>
+            <li>3스트라이크면 1게임 종료</li>
+            <li>게임 시작</li>
+        </ol>
+    </div>
+    <button type="button" id="start" onclick="rnd()">게임 시작</button>
+    <h1 id="com"></h1>
+    <div>
+        숫자 추측하기 : <input type="number" id="user" autofocus="true"><button type="button" id="check" onclick="check()">추측확인</button>
+    </div>
+    <ol id="result"></ol>
+    <script>
+        let com = new Set();
+        let num = [];
+        let s = 0;
+        let b = 0;
+        let count = 0;
+        function rnd() {
+            document.getElementById(`result`).innerText=``;
+            com.clear();
+            while(com.size<3){
+                let num = Math.floor(Math.random()*9);
+                com.add(num);
+            }
+            console.log(com);
+            document.getElementById(`com`).innerText = `컴퓨터가 숫자를 정하였습니다!`;
+        }
+        function check() {
+            if(count > 7){
+                alert(`기회 모두 소모`);
+                return;
+            }
+            num = [];
+            let error = 0;
+            let comNum = new Array();
+            com.forEach(value => {
+                comNum.push(value);
+            });
+            let ans = Number(document.getElementById(`user`).value);
+            num[0] = parseInt(Number(ans)/100);
+            num[1] = parseInt((ans-(num[0]*100))/10);
+            num[2] = (ans-(num[0]*100)-(num[1]*10));
+            if(ans>=1000||ans<1){
+                document.getElementById(`user`).value = ``;
+                alert(`제대로 입력바람(0~999, 중복X)`);
+                return;
+            }
+            for(let i = 0; i<3; i++){
+                for(let j = 0; j<3; j++){
+                    if(num[i]==num[j]){
+                        error++;
+                    }
+                }
+            }
+            if(error>3){
+                document.getElementById(`user`).value = ``;
+                alert(`제대로 입력바람(0~999, 중복X)`);
+                return;
+            }
+            compare(comNum, num);
+            printNum(s, b);
+            document.getElementById(`user`).value = ``;
+            count++;
+            if(count==7){
+                alert(`기회 모두 소모`);
+            }
+        }
+        function printNum(s ,b){
+            const result = document.getElementById(`result`);
+            result.innerHTML += `<li> ${num[0]}, ${num[1]}, ${num[2]} => `;
+            if((s+b)==0){
+                result.innerHTML += `OUT</li>`;
+            }else if(s==3){
+                result.innerHTML += `정답입니다.</li>`;
+                alert(`정답 축하`);
+                document.getElementById(`user`).style.disabled = "true";
+            }else{
+                result.innerHTML += `${s}Strike ${b}Ball</li>`;
+            }
+        }
+        function compare(comNum, user){
+            s = 0;
+            b = 0;
+            for(let i = 0; i<com.size; i++){
+                for(let j = 0; j<com.size; j++){
+                    if(comNum[i]==user[i]){
+                        s++;
+                        break;
+                    }else if(comNum[i]==user[j]&&i!=j){
+                        b++;
+                    }
+                }
+            }
+            console.log(s,b);
+        }
+        document.getElementById(`user`).addEventListener(`keypress`,(e)=>{
+            if(e.key==`Enter`){
+                check();
+            }
+        });
+    </script>
+</body>
+</html>

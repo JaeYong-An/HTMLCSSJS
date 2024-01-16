@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2, form, div{
+            background-color: aqua;
+            margin: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 300px;
+            transform: translate(-50%);
+            margin-left: 50%;
+        }
+        body{
+            text-align: center;
+        }
+        .con{
+            margin-top: 250px;
+        }
+        form{
+            background-color: #53be61;
+        }
+        input, button{
+            box-sizing: border-box;
+            height: 25px;
+            padding: 0;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        div{
+            background-color: white;
+            height: 30px;
+            padding: 0;
+            line-height: 90%;
+        }
+        .item{
+            height: 40px;
+            margin-top: 5px;
+        }
+        .item:nth-child(even){
+            background-color: #53be61;
+        }
+        .item:hover{
+            background-color: aquamarine;
+        }
+        #delete{
+            float: right;
+            height: 40px;
+            width: 40px;
+            background-color: white;
+            border: 0;
+        }
+        span{
+            font-size: 24px;
+            margin-top: 9.5px;
+            margin-left: 90px;
+            font-weight: bold;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h2>여행 준비물 점검하자</h2>
+        <form action="">
+            <input type="text" id="item" autofocus="true">
+            <button type="button" onclick="add()">추가</button>
+        </form>
+        <div id="list"></div>
+    </div>
+    <script>
+        let itemList = [];
+        let item = document.getElementById(`item`);
+        let list = document.getElementById(`list`);
+        function add(){
+            if(item.value!=''){
+                itemList[itemList.length] = item.value;
+                printL();
+                item.value = '';
+            }
+        }
+        function del(num){
+            itemList.splice(num,1);
+            printL();
+        }
+        function printL(){
+            let str = '';
+            list.innerHTML = str;
+            for(let i = 0; i<itemList.length; i++){
+                str += `<div id="item${i}" class="item"><span>${itemList[i]}</span><button type="button" id="delete" onclick="del(${i})"">X</button></div>`;
+            }
+            list.innerHTML += str;
+        }
+        // function add(){
+        //     let str = '';
+        //     str += `<div id="item${cnt}" class="item"><span>${item.value}</span><button type="button" id="delete" onclick="del(${cnt})"">X</button></div>`;
+        //     list.innerHTML += str;
+        //     cnt++;
+        //     item.value = '';
+        // }
+        // function del(num){
+        //     let delItem = document.getElementById(`item${num}`);
+        //     delItem.remove();
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        자바 스크립트의 데이터 타입의 확장 개념 집합데이터를 다룰 수 있는 객체
+        set 중복 데이터 허용 x : 중복 데이터가 들어오면 체크 후 하나만 남김
+        set() : 파라미터는 주로 배열 사용, 배열의 인덱스 밸류 값을 활용하여 집합 데이터를 만듦
+        set 전용 메소드들이 제공
+        new Set() or new Set(arr) : set 객체를 생성 및 초기화
+        s.add(value) : 데이터 추가
+        s.delete(value) : 데이터 삭제
+        s.has(value) : 값의 존재 여부를 트루/펄스 로 리턴
+        s.foreach(callback F) : set 순환
+        s.entries(), s.keys(), s.values() : 리턴타입 setIterator => 별도 메소드로 접근하여 사용 
+        s.size : set사이즈
+        s.clear() : set비우기
+    -->
+    <script>
+        const testSet = new Set([`html`,`css`,`js`]);
+        console.log(testSet);
+        testSet.add(`sadsa`);
+        console.log(testSet);
+        console.log(testSet.size);
+        testSet.delete(`html`);
+        console.log(testSet);
+        testSet.add(`css`);
+        console.log(testSet);
+        console.log(testSet.has(`css`));
+        testSet.forEach(function(v,i,s){
+            console.log(i,v,s);
+        });
+        console.log(testSet.keys());
+        console.log(testSet.entries());
+        console.log(testSet.values());
+        
+        // iterable : 반복이 가능함을 의미
+        //     반복이 가능한 요소 : 배열, map, set => key(), values(), entries()
+        //     forEach 사용 불가능
+        //     for of : [Symbol.Iterator] 속성을 가지는 컬렉션에서 사용가능
+        for(const iter of testSet.entries()){
+            console.log(iter);
+            iter.forEach(function(v,i,s){
+                console.log(i,v,s);
+            })
+        }
+        testSet.clear();
+        console.log(testSet);
+    </script>
+</body>
+</html>

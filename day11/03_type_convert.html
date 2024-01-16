@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        데이터 타입을 원하는 형식으로 변경 (형변환, casting)
+    </h1>
+    <ul>
+        <li>
+            문자 -> 숫자 : number("String"), parseInt("String"), parseFloat("String")
+        </li>
+        <li>
+            숫자 -> 문자 : 123.toString(), (123.123)toString()
+        </li>
+        <li>
+            문자 -> boolean : Boolean("true")
+        </li>
+        <li>
+            boolean -> 문자 : String(true)
+        </li>
+        <li>
+            number -> boolean : Boolean(number), Boolean(1), Boolean(0)
+        </li>
+        <li>
+            boolean -> number : Number(true), Number(false)
+        </li>
+    </ul>
+
+    <script>
+        console.log(String(true), typeof String(true))
+        console.log(Boolean(1), typeof Boolean(1))
+        console.log(Number(1), typeof Number(1))
+        console.log(Number(true), typeof Number(true))
+    </script>
+</body>
+</html>

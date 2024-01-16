@@ -1,0 +1,221 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+div{
+    width: 100%;
+}
+.header{
+    height: 60px;
+    background-color: rgb(164, 199, 199);
+    font-size: 20px;
+    line-height: 60px;
+    padding-left: 40px;
+    font-weight: 700;
+}
+/* media query 변경 내용 */
+.main-img{
+    height: 300px;
+    background-image: url(vndrud.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.description{
+    height: 300px;
+    background-color: white;
+    box-sizing: border-box;
+    position: relative;
+}
+.box{
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.box>p:first-child{
+    font-size: 16px;
+    font-weight: 700;
+    color: #4a4a4a;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.box>p:nth-child(2){
+    font-size: 20px;
+    font-weight: 700;
+    color: #1b1b1b;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.box>p:last-child{
+    font-size: 16px;
+    color: #7a7a7a;
+    margin-top: 0;
+}
+.sub-img{
+    height: 350px;
+    background-image: url(bag.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.sub-img2{
+    height: 200px;
+    background-image: url(seoul.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 200px;
+}
+.sub-img2>a{
+    border: 4px solid rgb(255, 255, 255);
+    padding: 10px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+.sub-img3{
+    height: 200px;
+    background-image: url(bag2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width:800px) {
+    .main-img{
+    height: 500px;
+    }
+    .description{
+        height: 300px;
+        background-color: white;
+        box-sizing: border-box;
+    }
+    .box{
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+    .box>p:first-child{
+        font-size: 16px;
+        font-weight: 700;
+        color: #4a4a4a;
+        margin-top: 30px;
+    }
+    .box>p:nth-child(2){
+        font-size: 20px;
+        font-weight: 700;
+        color: #1b1b1b;
+    }
+    .box>p:last-child{
+        font-size: 16px;
+        color: #7a7a7a;
+    }
+    .sub-img{
+        width: 50%;
+        height: 300px;
+        float: left;
+        background-image: url(bag.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+    .sub-img2{
+        width: 50%;
+        height: 150px;
+        float: right;
+        background-image: url(seoul.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        line-height: 150px;
+    }
+    .sub-img2>a{
+        border: 4px solid rgb(255, 255, 255);
+        padding: 10px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+    .sub-img3{
+        width: 50%;
+        height: 150px;
+        float: right;
+        background-image: url(bag2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .main-img{
+        width: 50%;
+        float: left;
+        height: 600px;
+        background-image: url(vndrud.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .description{
+        width: 50%;
+        height: 300px;
+        float: right;
+        background-color: white;
+        box-sizing: border-box;
+    }
+    .box{
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+    .box>p:first-child{
+        font-size: 16px;
+        font-weight: 700;
+        color: #4a4a4a;
+        margin-top: 30px;
+    }
+    .box>p:nth-child(2){
+        font-size: 20px;
+        font-weight: 700;
+        color: #1b1b1b;
+    }
+    .box>p:last-child{
+        font-size: 16px;
+        color: #7a7a7a;
+    }
+    .sub-img{
+        width: 25%;
+        height: 300px;
+        float: left;
+        background-image: url(bag.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+    .sub-img2{
+        width: 25%;
+        height: 150px;
+        float: right;
+        background-image: url(seoul.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        line-height: 150px;
+    }
+    .sub-img2>a{
+        border: 4px solid rgb(255, 255, 255);
+        padding: 10px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+        margin: auto;
+    }
+    .sub-img3{
+        width: 25%;
+        height: 150px;
+        float: right;
+        background-image: url(bag2.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
